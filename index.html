@@ -1481,6 +1481,7 @@ catClickCount++;
 catDailyCount++;
 window._catClicks = catClickCount;
 saveDailyCount();
+saveState();
 if(typeof injectCatPb==='function')injectCatPb();
 updateCatCounter();
 
