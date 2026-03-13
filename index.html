@@ -1080,14 +1080,21 @@ window.eqSetVol = function(type, val){
     window._scpMusicVol = v;
     window._musicVol = v;
     if(window._bgGain) window._bgGain.gain.value = v * (window._allMuted ? 0 : 1);
-    // Применить к audio — правильный уровень с учётом трека
     if(typeof audio !== 'undefined' && audio){
       const targetVol = typeof getMusicVol === 'function' ? getMusicVol(currentMusicSrc) : v * 0.6;
-      if(!audio.paused) audio.volume = targetVol;
+      audio.volume = targetVol;
+      if(v > 0.01 && audio.paused){
+        audio.preload = 'auto';
+        audio.play().catch(()=>{});
+      } else if(v <= 0.01){
+        audio.pause();
+      }
     }
   } else {
     window._scpFxVol = v;
     window._fxVol = v;
+    window._fxVolMul = v;
+    window.fxOn = v > 0.001;
   }
 };
 window.eqSetTheme = function(theme, el){
@@ -1097,12 +1104,15 @@ window.eqSetTheme = function(theme, el){
   window._currentTheme = theme;
   // Переключить музыку под тему
   const newSrc = theme === 'teal' ? MUSIC_TEAL : theme === 'ash' ? MUSIC_ASH : MUSIC_DEFAULT;
-  if(typeof switchMusic === 'function' && newSrc !== currentMusicSrc){
-    switchMusic(newSrc);
+  if(typeof switchMusic === 'function' && typeof soundOn !== 'undefined'){
+    // Уже в основном режиме — через switchMusic
+    if(newSrc !== currentMusicSrc) switchMusic(newSrc);
   } else if(typeof audio !== 'undefined' && audio){
-    // На экране входа — просто сменить src и запустить
+    // Экран входа — прямой старт (клик = жест пользователя, autoplay разрешён)
     const mv = window._scpMusicVol !== undefined ? window._scpMusicVol : 0.5;
+    audio.preload = 'auto';
     audio.src = newSrc;
+    currentMusicSrc = newSrc;
     audio.volume = mv * 0.6;
     audio.play().catch(()=>{});
   }
@@ -1112,7 +1122,6 @@ function initEntryQuickSettings(){
   const qs = document.getElementById('entry-quick-settings');
   if(!qs) return;
   try{
-    // Читаем сохранённые значения из localStorage
     const _save = loadState() || {};
     const mv = _save.musicVol !== undefined ? _save.musicVol : 0.5;
     const fv = _save.fxVol !== undefined ? _save.fxVol : 1.0;
@@ -1137,13 +1146,36 @@ function initEntryQuickSettings(){
     const themeSrc = th === 'teal' ? MUSIC_TEAL : th === 'ash' ? MUSIC_ASH : MUSIC_DEFAULT;
     currentMusicSrc = themeSrc;
 
-    // Запустить музыку на экране входа (тихо)
+    // Синхронизировать FX
+    window._scpMusicVol = mv;
+    window._scpFxVol = fv;
+    window._fxVolMul = fv;
+    window.fxOn = fv > 0.001;
+
+    // Музыка — запустить при первом взаимодействии пользователя
     if(typeof audio !== 'undefined' && audio){
-      window._scpMusicVol = mv;
-      window._scpFxVol = fv;
+      audio.preload = 'auto';
       audio.src = themeSrc;
-      audio.volume = mv * 0.6;
-      audio.play().catch(()=>{});
+      const targetVol = mv * 0.6;
+      audio.volume = targetVol;
+
+      const tryPlay = ()=>{
+        if(audio.paused && mv > 0.01){
+          audio.play().catch(()=>{});
+        }
+        document.removeEventListener('click', tryPlay);
+        document.removeEventListener('keydown', tryPlay);
+        document.removeEventListener('touchstart', tryPlay);
+        document.removeEventListener('input', tryPlay);
+      };
+      // Попробовать сразу (может сработать если уже было взаимодействие)
+      audio.play().catch(()=>{
+        // Если браузер заблокировал — ждём первого клика/тача
+        document.addEventListener('click', tryPlay, {once:true});
+        document.addEventListener('keydown', tryPlay, {once:true});
+        document.addEventListener('touchstart', tryPlay, {once:true});
+        document.addEventListener('input', tryPlay, {once:true});
+      });
     }
   }catch(e){}
   setTimeout(()=>qs.classList.add('visible'), 400);
