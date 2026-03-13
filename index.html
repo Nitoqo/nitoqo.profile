@@ -286,7 +286,7 @@ body.theme-ash #bg-dice2.rolling-enemy{border-color:rgba(136,136,144,.65);box-sh
 .eq-dot{width:14px;height:14px;border-radius:50%;cursor:pointer;border:1px solid rgba(255,255,255,.15);transition:transform .2s,border-color .2s;flex-shrink:0}
 .eq-dot:hover{transform:scale(1.3)}
 .eq-dot.active{border-color:rgba(255,255,255,.5);box-shadow:0 0 6px currentColor}
-#site-version{position:fixed;top:14px;right:14px;z-index:1000;font-family:'Caveat',cursive;font-size:13px;color:rgba(var(--thread-rgb),.25);letter-spacing:.1em;pointer-events:none;opacity:0;transition:opacity 1.5s ease}#site-version.ui-visible{opacity:1}</style> </head> <body> <div id="poppy-meadow"><canvas id="poppy-canvas"></canvas></div> <canvas id="rain-canvas"></canvas> <canvas id="spark-canvas"></canvas> <canvas id="particles-canvas"></canvas> <div id="cursor-trail"></div> <div id="sound-control-panel">
+#site-version{position:fixed;top:14px;right:14px;z-index:9500;font-family:'Caveat',cursive;font-size:13px;color:rgba(var(--thread-rgb),.22);letter-spacing:.1em;pointer-events:none;opacity:1}</style> </head> <body> <div id="poppy-meadow"><canvas id="poppy-canvas"></canvas></div> <canvas id="rain-canvas"></canvas> <canvas id="spark-canvas"></canvas> <canvas id="particles-canvas"></canvas> <div id="cursor-trail"></div> <div id="sound-control-panel">
   <div class="scp-track" id="scp-music"><div class="scp-canvas-wrap"><canvas class="scp-canvas" id="scp-cv-music"></canvas></div></div>
   <div class="scp-track" id="scp-rain"><div class="scp-canvas-wrap"><canvas class="scp-canvas" id="scp-cv-rain"></canvas></div></div>
   <div class="scp-track" id="scp-fx"><div class="scp-canvas-wrap"><canvas class="scp-canvas" id="scp-cv-fx"></canvas></div></div>
@@ -344,11 +344,20 @@ body.theme-ash #bg-dice2.rolling-enemy{border-color:rgba(136,136,144,.65);box-sh
     <div id="entry-name-err" style="font-family:'Caveat',cursive;font-size:13px;color:rgba(var(--thread-rgb),.5);min-height:18px;letter-spacing:.1em"></div>
   </div>
   <div id="returning-screen" style="display:none;flex-direction:column;align-items:center;gap:16px">
-    <div class="entry-label" id="returning-name" style="font-size:clamp(18px,3vw,28px);letter-spacing:.2em;color:var(--thread)"></div>
-    <div class="entry-label" id="returning-sub" style="font-size:clamp(12px,1.5vw,15px);letter-spacing:.2em;opacity:.4"></div>
-    <button id="tyk-btn" style="margin-top:8px">тык</button>
+    <div class="entry-label" id="returning-name" style="font-size:clamp(22px,4vw,32px);letter-spacing:.2em;color:var(--thread)"></div>
+    <div class="entry-label" id="returning-sub" style="font-size:clamp(12px,1.5vw,14px);letter-spacing:.2em;opacity:.35;margin-top:-8px"></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:8px;width:100%;max-width:240px">
+      <button id="ret-continue-btn" style="font-family:'Caveat',cursive;font-size:18px;color:var(--paper);background:rgba(var(--thread-rgb),.08);border:1px solid rgba(var(--thread-rgb),.4);border-radius:6px;padding:10px 24px;width:100%;letter-spacing:.08em;cursor:pointer;transition:all .3s">продолжить как <span id="ret-nick"></span></button>
+      <div style="display:flex;align-items:center;gap:10px;width:100%">
+        <div style="flex:1;height:1px;background:rgba(var(--thread-rgb),.12)"></div>
+        <span style="font-family:'Caveat',cursive;font-size:12px;color:rgba(var(--thread-rgb),.25);letter-spacing:.15em">или</span>
+        <div style="flex:1;height:1px;background:rgba(var(--thread-rgb),.12)"></div>
+      </div>
+      <button id="ret-switch-btn" style="font-family:'Caveat',cursive;font-size:16px;color:rgba(var(--thread-rgb),.5);background:none;border:1px solid rgba(var(--thread-rgb),.18);border-radius:6px;padding:9px 24px;width:100%;letter-spacing:.08em;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px"><svg width="16" height="16" viewBox="0 0 18 18" style="flex-shrink:0"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 002.38-5.88c0-.57-.05-.66-.15-1.18z"/><path fill="#34A853" d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2a4.8 4.8 0 01-7.18-2.54H1.83v2.07A8 8 0 008.98 17z"/><path fill="#FBBC05" d="M4.5 10.52a4.8 4.8 0 010-3.04V5.41H1.83a8 8 0 000 7.18l2.67-2.07z"/><path fill="#EA4335" d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 001.83 5.4L4.5 7.49a4.77 4.77 0 014.48-3.3z"/></svg> сменить аккаунт</button>
+      <button id="ret-guest-btn" style="font-family:'Caveat',cursive;font-size:16px;color:rgba(var(--thread-rgb),.35);background:none;border:1px solid rgba(var(--thread-rgb),.12);border-radius:6px;padding:8px 24px;width:100%;letter-spacing:.08em;cursor:pointer;transition:all .3s">войти гостем</button>
+    </div>
   </div>
-</div> <div id="site-version">v1.0</div>
+</div> <div id="site-version">v1.5</div>
 <div id="main-content"> <section id="hero"> <div id="view-counter"><div id="vc-icon"></div><span id="vc-num">—</span></div> <div class="avatar-wrap" id="avatar-wrap"> <video id="avatar-img" src="https://files.catbox.moe/ng7tvd.mp4" autoplay loop muted playsinline></video> <div id="nitka-tag">Нитка</div> </div> <h1 class="name-title" id="name-el">Nitoqo</h1> <p class="bio-text" id="bio-el">Нитка да Нитоко. Смысл?</p> <div class="links-row"> <a href="https://www.tiktok.com/@nitoqo?_r=1&_t=ZN-94XktfVEZpG" target="_blank" class="link-btn"> <svg class="link-icon" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z"/></svg> TikTok </a> <a href="https://pin.it/yZFo3ee5J" target="_blank" class="link-btn"> <svg class="link-icon" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg> Pinterest </a> <a href="https://www.youtube.com/@nitoqo_og" target="_blank" class="link-btn"> <svg class="link-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube </a> <a href="https://t.me/Smysl_Vopros" target="_blank" class="link-btn"> <svg class="link-icon" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg> Telegram </a> </div> </section> <section id="cat-section"> <div style="position:relative;display:inline-block"> <div id="cat-char" class="reveal">ฅ^•ﻌ•^ฅ</div> <div id="cat-speech">мяу?</div> <div id="cat-sleep-zzz"><span class="zzz-letter">z</span><span class="zzz-letter">z</span><span class="zzz-letter">Z</span></div> </div> <div id="cat-name-label"></div> <div id="cat-counter"></div> </section> <div class="sep-line reveal"></div> <section id="pelmeni-section"> <img id="pelmeni-img" src="" alt="пельмени думают" / loading="lazy"> <p class="pelmeni-caption reveal" id="pelmeni-cap" style="transition:opacity .5s ease;margin-bottom:16px">Тихо! Пельмени думают.</p><div id="pelmeni-ghost-wrap"><span id="pelmeni-ghost">🥟</span></div> </section> <section id="two-sides-section"> <img id="two-sides-img" src="" alt="I have two sides" / loading="lazy"> </section> <div class="sep-line reveal"></div> <section id="counters-section" class="reveal"><div class="counters-grid"><div class="cflip-wrap" data-card="secs" onclick="this.querySelector('.cflip').classList.toggle('flipped');if(typeof playFlip==='function')playFlip();if(typeof trackFlip==='function')trackFlip(this.dataset.card)"><div class="cflip"><div class="cflip-front live"><div class="counter-label">до нового года</div><div class="counter-value" id="cnt-ny">—</div><div class="counter-sub">секунд</div><div class="cflip-hint">нажми</div></div><div class="cflip-back"><div class="cflip-back-title">с начала года</div><div class="cflip-back-text"><span id="cnt-secs">—</span> сек · <span id="cnt-tz-label2"></span></div></div></div></div><div class="cflip-wrap" data-card="temp" onclick="this.querySelector('.cflip').classList.toggle('flipped');if(typeof playFlip==='function')playFlip();if(typeof trackFlip==='function')trackFlip(this.dataset.card)"><div class="cflip"><div class="cflip-front"><div class="counter-label" id="cnt-temp-label">загрузка...</div><div class="counter-value" id="cnt-temp">—</div><div class="counter-sub" id="cnt-temp-sub"> </div><div class="cflip-hint">нажми</div></div><div class="cflip-back"><div class="cflip-back-title">откуда данные</div><div class="cflip-back-text">open-meteo.com — погода в реальном времени. место случайное при каждом заходе.</div></div></div></div></div></section> <div class="sep-line reveal"></div> <section id="casino-section" class="reveal" style="position:relative">
 <div class="casino-inner">
 <div class="casino-title">машинка</div>
@@ -987,7 +996,7 @@ if(v <= 0){ clearInterval(rainFadeInterval); rainFadeInterval = null; window.rai
 },60);
 window.rainFadeInterval = rainFadeInterval;
 }
-document.getElementById('rain-toggle').addEventListener('click',()=>{
+document.getElementById('rain-toggle')?.addEventListener('click',()=>{
 playClick();
 rainOn = !rainOn;
 const btn = document.getElementById('rain-toggle');
@@ -1106,14 +1115,30 @@ function showReturningScreen(name, sub){
   rs.style.display='flex';
   document.getElementById('returning-name').textContent = name;
   document.getElementById('returning-sub').textContent = sub || '';
-  document.getElementById('tyk-btn').addEventListener('click', async ()=>{
-    playClick();
-    // Подгружаем сохранения из Supabase перед входом
-    if(window._nitoqoUser){
-      try{ await loadFromSupabase(); }catch(e){}
-    }
-    enterMain(name);
-  }, {once:true});
+  const nick = document.getElementById('ret-nick');
+  if(nick) nick.textContent = name;
+
+  // Продолжить как [ник]
+  const contBtn = document.getElementById('ret-continue-btn');
+  if(contBtn){
+    const nickSpan = document.getElementById('ret-nick');
+    if(nickSpan) nickSpan.textContent = name;
+    contBtn.onclick = async ()=>{
+      playClick();
+      if(window._nitoqoUser){ try{ await loadFromSupabase(); }catch(e){} }
+      enterMain(name);
+    };
+  }
+
+  // Сменить аккаунт Google
+  const switchBtn = document.getElementById('ret-switch-btn');
+  if(switchBtn) switchBtn.onclick = ()=>{ playClick(); signInWithGoogle(); };
+
+  // Войти гостем
+  const guestBtn = document.getElementById('ret-guest-btn');
+  if(guestBtn) guestBtn.onclick = ()=>{ playClick(); window._nitoqoUser = null; enterMain('гость'); };
+
+  initEntryQuickSettings();
 }
 
 window.signInWithGoogle = async function(){
@@ -1950,7 +1975,7 @@ new IntersectionObserver(e => { _poppyVisible = e[0].isIntersecting; }, {thresho
 (()=>{const ph=document.getElementById('pelmeni-cap'),ps=['Тихо! Пельмени думают.','Пельмени решают, быть или не быть.','Не мешай. Идёт научный совет.','Они почти поняли смысл жизни. Почти.','Пельмени в потоке. Ты нет.','Тс-с. Идёт защита диссертации.','Пельмени думают за тебя. Расслабься.','Вселенная подождёт. Пельмени — нет.','Они думали уже 300 лет. Не торопи.','Тихо. Здесь думают профессионалы.','Идут переговоры на высшем уровне.','Тут каждый думает о своём. Глубоко.','Тихо. Думают.','Процесс идёт.','Не входить.','Занято.','Сосредоточены.','Без комментариев.','Думают о смерти. Как обычно.','Пельмени не отвечают. Их нет.','Молчат. Им лучше.','Пельмени устали. Но продолжают.','Всё равно не поймёшь.','Думают в последний раз.','Пельмени согласны. Это страшно.','Жареные, но всё ещё думают.','Горячие мысли. Буквально.','Поджарились, но не сдались.','Думают. Несмотря ни на что.','Горячая голова — горячий пельмень.'];const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};let deck=shuffle([...ps]),di=0;setInterval(()=>{ph.style.opacity='0';setTimeout(()=>{ph.textContent=deck[di];ph.style.opacity='1';di++;if(di>=deck.length){deck=shuffle([...ps]);di=0;}},500);},3500);})();let pelmeniClicks=0,pelmeniDone=false;window._pelmeniClicks=0;const pelmeniGhost=document.getElementById('pelmeni-ghost');document.getElementById('pelmeni-img').addEventListener('click',e=>{playWoosh();if(pelmeniDone)return;pelmeniClicks++;window._pelmeniClicks=pelmeniClicks;if(typeof injectPelmeniPb==='function')injectPelmeniPb();const size=Math.round((pelmeniClicks/13)*38);const opacity=Math.min(0.12+((pelmeniClicks-1)/13)*0.18,1);pelmeniGhost.style.fontSize=size+'px';pelmeniGhost.style.opacity=opacity;if(pelmeniClicks>=14){pelmeniDone=true;pelmeniGhost.classList.add('burst');spawnSparks(e.clientX,e.clientY,20);setTimeout(()=>{unlockAch('pelmeni_god');pelmeniGhost.style.fontSize='0px';pelmeniGhost.style.opacity='0';pelmeniGhost.classList.remove('burst');pelmeniClicks=0;pelmeniDone=false;},900);}});
 (()=>{const cap=document.getElementById('pelmeni-cap');if(!cap)return;cap.addEventListener('click',e=>{cap.classList.remove('cap-click');void cap.offsetWidth;cap.classList.add('cap-click');cap.addEventListener('animationend',()=>cap.classList.remove('cap-click'),{once:true});});})();
 (()=>{const av=document.getElementById('avatar-img');if(!av)return;const show=()=>{av.style.opacity='1';};av.addEventListener('canplay',show,{once:true});av.addEventListener('loadeddata',show,{once:true});if(av.readyState>=2)show();})();
-document.getElementById('two-sides-img').addEventListener('click',e =>{
+document.getElementById('two-sides-img')?.addEventListener('click',e =>{
 playGlitch();
 const img = e.currentTarget;
 let c = 0;
@@ -2230,7 +2255,7 @@ return '<div class="ach-category'+(allDone?' cat-complete':'')+'">'+cat.label+su
 const allDefs=ACH_DEFS.filter(a=>a.id!=='all_ach');const doneCount=allDefs.filter(a=>achUnlocked.has(a.id)).length;const pct=Math.round(doneCount/allDefs.length*100);const progBar=document.getElementById('ach-progress-bar');const progLabel=document.getElementById('ach-prog-label');const progPct=document.getElementById('ach-prog-pct');if(progBar)progBar.style.width=pct+'%';if(progLabel)progLabel.textContent=doneCount+' из '+allDefs.length;if(progPct)progPct.textContent=pct+'%';
 }
 
-document.getElementById('ach-btn').addEventListener('click',()=>{
+document.getElementById('ach-btn')?.addEventListener('click',()=>{
 playClick();
 renderAchPanel();if(typeof injectMousePb==='function')injectMousePb();if(typeof injectCatPb==='function')injectCatPb();if(typeof injectPearPb==='function')injectPearPb();if(typeof injectDuckPb==='function')injectDuckPb();if(typeof injectPelmeniPb==='function')injectPelmeniPb();if(typeof injectEmptyPb==='function')injectEmptyPb();if(typeof injectGlitchPb==='function')injectGlitchPb();if(typeof injectScrollPb==='function')injectScrollPb();if(typeof injectFlipperPb==='function')injectFlipperPb();if(typeof injectPoemPb==='function')injectPoemPb();if(typeof injectTimePb==='function')injectTimePb();
 document.getElementById('ach-panel').classList.add('open');;
@@ -2258,11 +2283,11 @@ playClick();
 if(typeof trackFlip==='function')trackFlip('tg');
 }
 });
-})();document.getElementById('ach-close').addEventListener('click',()=>{
+})();document.getElementById('ach-close')?.addEventListener('click',()=>{
 playClick();
 document.getElementById('ach-panel').classList.remove('open');
 });
-document.getElementById('ach-panel').addEventListener('click',e =>{
+document.getElementById('ach-panel')?.addEventListener('click',e =>{
 if(e.target === document.getElementById('ach-panel')){
 document.getElementById('ach-panel').classList.remove('open');
 }
@@ -2270,7 +2295,7 @@ document.getElementById('ach-panel').classList.remove('open');
 document.getElementById('cat-char').addEventListener('click',()=>{
 unlockAch('first_click');
 },{ once: true });
-document.getElementById('thread-knot').addEventListener('click',()=> unlockAch('pear_pull'),{ once: true });
+document.getElementById('thread-knot')?.addEventListener('click',()=> unlockAch('pear_pull'),{ once: true });
 (function(){
 let poemTimer = null, poemInterval = null;
 window._poemSecs = 0;
@@ -2920,7 +2945,7 @@ window._angelMice = angelMice;
 window._demonMice = demonMice;
 
 // старт после нажатия тык
-document.getElementById('tyk-btn').addEventListener('click', function(){
+document.getElementById('tyk-btn')?.addEventListener('click', function(){
   gameStarted = true;
   // первая мышь через 2 сек, потом рандомно
   var firstDelay = SPAWN_MIN + Math.random()*(SPAWN_MAX-SPAWN_MIN);
