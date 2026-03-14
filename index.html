@@ -293,8 +293,8 @@ body.theme-ash #bg-dice2.rolling-enemy{border-color:rgba(136,136,144,.65);box-sh
     <div class="entry-label" id="entry-greeting">добро пожаловать</div>
     <div class="entry-label" id="entry-subgreeting" style="opacity:0;font-size:clamp(12px,1.5vw,15px);letter-spacing:.2em;margin-top:-10px;transition:opacity .8s ease .4s"></div>
     <div style="font-family:'Caveat',cursive;font-size:15px;color:rgba(var(--thread-rgb),.35);letter-spacing:.05em;text-align:center;line-height:1.7;margin-top:16px;max-width:220px">
-      войди — котик запомнит тебя ✦<br>
-      <span style="color:rgba(var(--thread-rgb),.22);font-size:13px">достижения и прогресс только для своих</span>
+      войди через Google — котик запомнит твою почту ✦<br>
+      <span style="color:rgba(var(--thread-rgb),.22);font-size:13px">достижения и прогресс доступны зарегистрированным</span>
     </div>
     <div id="auth-btns" style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:16px">
       <button id="google-signin-btn" onclick="signInWithGoogle()" style="display:flex;align-items:center;gap:10px;font-family:'Caveat',cursive;font-size:20px;color:var(--paper);background:rgba(255,255,255,.05);border:1px solid rgba(var(--thread-rgb),.3);border-radius:6px;padding:10px 28px;letter-spacing:.12em;cursor:pointer;transition:all .3s">
@@ -1161,7 +1161,7 @@ function showReturningScreen(name, sub){
   if(switchBtn) switchBtn.onclick = ()=>{ playClick(); switchGoogleAccount(); };
 
   const guestBtn = document.getElementById('ret-guest-btn');
-  if(guestBtn) guestBtn.onclick = ()=>{ playClick(); window._nitoqoUser = null; if(window._savedRainOn === undefined) window._savedRainOn = true; enterMain('гость'); };
+  if(guestBtn) guestBtn.onclick = ()=>{ playClick(); window._nitoqoUser = null; window._savedRainOn = true; enterMain('гость'); };
 }
 
 window.signInWithGoogle = async function(){
@@ -1209,7 +1209,7 @@ window.switchGoogleAccount = async function(){
 window.continueAsGuest = function(){
   playClick();
   window._nitoqoUser = null;
-  if(window._savedRainOn === undefined) window._savedRainOn = true;
+  window._savedRainOn = true; // гость всегда со включённым дождём
   enterMain('гость');
 };
 
