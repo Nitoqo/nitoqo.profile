@@ -115,6 +115,9 @@
 #casino-section:not(.show-back) .casino-inner{
   animation:cfcFadeIn .35s ease forwards;
 }
+#casino-section.show-back #casino-back-panel{
+  animation:cfcFadeIn .35s ease forwards;
+}
 
 .casino-cat-hint{font-family:'Caveat',cursive;font-size:13px;color:rgba(var(--thread-rgb),.35);letter-spacing:.1em;margin-top:6px;margin-bottom:2px}
 #casino-cat-bonus{color:rgba(var(--thread-rgb),.55)}
@@ -329,7 +332,7 @@ body.theme-ash #bg-dice2.rolling-enemy{border-color:rgba(136,136,144,.65);box-sh
       <button id="ret-guest-btn" style="font-family:'Caveat',cursive;font-size:16px;color:rgba(var(--thread-rgb),.35);background:none;border:1px solid rgba(var(--thread-rgb),.12);border-radius:6px;padding:8px 24px;width:100%;letter-spacing:.08em;cursor:pointer;transition:all .3s">войти гостем</button>
     </div>
   </div>
-</div> <div id="site-version">v2.0</div>
+</div> <div id="site-version">v2.1</div>
 <div id="main-content"> <section id="hero"> <div id="view-counter"><div id="vc-icon"></div><span id="vc-num">—</span></div> <div class="avatar-wrap" id="avatar-wrap"> <video id="avatar-img" src="https://files.catbox.moe/ng7tvd.mp4" autoplay loop muted playsinline></video> <div id="nitka-tag">Нитка</div> </div> <h1 class="name-title" id="name-el">Nitoqo</h1> <p class="bio-text" id="bio-el">Нитка да Нитоко. Смысл?</p> <div class="links-row"> <a href="https://www.tiktok.com/@nitoqo?_r=1&_t=ZN-94XktfVEZpG" target="_blank" class="link-btn"> <svg class="link-icon" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z"/></svg> TikTok </a> <a href="https://pin.it/yZFo3ee5J" target="_blank" class="link-btn"> <svg class="link-icon" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg> Pinterest </a> <a href="https://www.youtube.com/@nitoqo_og" target="_blank" class="link-btn"> <svg class="link-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> YouTube </a> <a href="https://t.me/Smysl_Vopros" target="_blank" class="link-btn"> <svg class="link-icon" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg> Telegram </a> </div> </section> <section id="cat-section"> <div style="position:relative;display:inline-block"> <div id="cat-char" class="reveal">ฅ^•ﻌ•^ฅ</div> <div id="cat-speech">мяу?</div> <div id="cat-sleep-zzz"><span class="zzz-letter">z</span><span class="zzz-letter">z</span><span class="zzz-letter">Z</span></div> </div> <div id="cat-name-label"></div> <div id="cat-counter"></div> </section> <div class="sep-line reveal"></div> <section id="pelmeni-section"> <img id="pelmeni-img" src="" alt="пельмени думают" / loading="lazy"> <p class="pelmeni-caption reveal" id="pelmeni-cap" style="transition:opacity .5s ease;margin-bottom:16px">Тихо! Пельмени думают.</p><div id="pelmeni-ghost-wrap"><span id="pelmeni-ghost">🥟</span></div> </section> <section id="two-sides-section"> <img id="two-sides-img" src="" alt="I have two sides" / loading="lazy"> </section> <div class="sep-line reveal"></div> <section id="counters-section" class="reveal"><div class="counters-grid"><div class="cflip-wrap" data-card="secs" onclick="this.querySelector('.cflip').classList.toggle('flipped');if(typeof playFlip==='function')playFlip();if(typeof trackFlip==='function')trackFlip(this.dataset.card)"><div class="cflip"><div class="cflip-front live"><div class="counter-label">до нового года</div><div class="counter-value" id="cnt-ny">—</div><div class="counter-sub">секунд</div><div class="cflip-hint">нажми</div></div><div class="cflip-back"><div class="cflip-back-title">с начала года</div><div class="cflip-back-text"><span id="cnt-secs">—</span> сек · <span id="cnt-tz-label2"></span></div></div></div></div><div class="cflip-wrap" data-card="temp" onclick="this.querySelector('.cflip').classList.toggle('flipped');if(typeof playFlip==='function')playFlip();if(typeof trackFlip==='function')trackFlip(this.dataset.card)"><div class="cflip"><div class="cflip-front"><div class="counter-label" id="cnt-temp-label">загрузка...</div><div class="counter-value" id="cnt-temp">—</div><div class="counter-sub" id="cnt-temp-sub"> </div><div class="cflip-hint">нажми</div></div><div class="cflip-back"><div class="cflip-back-title">откуда данные</div><div class="cflip-back-text">open-meteo.com — погода в реальном времени. место случайное при каждом заходе.</div></div></div></div></div></section> <div class="sep-line reveal"></div> <section id="casino-section" class="reveal" style="position:relative">
 <div class="casino-inner">
 <div class="casino-title">машинка</div>
@@ -992,8 +995,8 @@ function enterMain(nickname){
   window._nitoqoNick = nickname;
   // Показать имя котика если уже задано
   setTimeout(()=>{ if(window._catName && typeof updateCatNameLabel==='function') updateCatNameLabel(); },800);
-  // Если пользователь набрал 100+ тапов но ещё не дал имя — показать попап
-  if(window._nitoqoUser && catClickCount >= 100 && !catNameGiven && !window._catName){
+  // Если пользователь набрал 100+ тапов но ещё не дал имя — показать попап один раз
+  if(window._nitoqoUser && catClickCount >= 100 && !window._catName){
     catNameGiven = true;
     setTimeout(()=>{ if(typeof showCatNamePopup==='function') showCatNamePopup(); }, 1800);
   }
@@ -1005,8 +1008,15 @@ function enterMain(nickname){
   const _startMuted = window._savedAllMuted || false;
   if(_startSound && !_startMuted){
     const _targetMusicVol = getMusicVol(currentMusicSrc);
+    audio.preload = 'auto';
     audio.volume = 0;
-    audio.play().catch(()=>{});
+    const _playPromise = audio.play();
+    if(_playPromise !== undefined){
+      _playPromise.catch(()=>{
+        // Если браузер ещё не разрешил — пробуем ещё раз через небольшую паузу
+        setTimeout(()=>{ audio.play().catch(()=>{}); }, 300);
+      });
+    }
     let _v = 0;
     const _t = setInterval(()=>{ _v = Math.min(_v+0.02,_targetMusicVol); audio.volume=_v; if(_v>=_targetMusicVol)clearInterval(_t); },40);
   } else { audio.volume=0; }
@@ -2136,8 +2146,8 @@ window._catClicks = catClickCount;
 catDailyCount = loadDailyCount();
 // Загрузить имя котика
 if(window._catName){ setTimeout(()=>{ if(typeof updateCatNameLabel==='function') updateCatNameLabel(); },800); }
-// Если имя уже задано — попап не нужен. Если нет — оставляем catNameGiven=false, попап появится в enterMain
-if(catClickCount >= 100 && window._catName){ catNameGiven = true; }
+// Если >= 100 кликов — попап уже был показан (или покажем один раз через enterMain), больше не триггерим
+if(catClickCount >= 100){ catNameGiven = true; }
 if(catDailyCount >= CAT_DAILY_LIMIT){
 catAsleep = true;
 setTimeout(()=>{
